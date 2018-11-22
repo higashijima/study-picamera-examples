@@ -20,7 +20,6 @@ except KeyError as e:
 net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
         '/home/pi/models/MobileNetSSD_deploy.caffemodel')
 
-
 def upload():
     image = { 'file': open('hello.jpg', 'rb') }
     payload = {
