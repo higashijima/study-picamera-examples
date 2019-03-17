@@ -23,6 +23,7 @@ class QRDetector(object):
 
     def get_frame(self):
         frame = self.flip_if_needed(self.vs.read())
+        print("frame={}".format(frame))
         frame = self.process_image(frame)
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
