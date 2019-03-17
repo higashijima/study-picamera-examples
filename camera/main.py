@@ -31,7 +31,7 @@ app = Flask(__name__)
 def qr_detect():
     detected, data = video_camera.get_detected()
     if detected:
-        if data not "":
+        if not(data == ""):
             current_state = DUTY_OPEN if current_state==DUTY_CLOSE else DUTY_OPEN
             SERVO.CHangeDutyCycle(current_state)
             
