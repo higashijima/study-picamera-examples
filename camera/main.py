@@ -6,7 +6,7 @@ from processor.qr_detector import QRDetector as VideoCamera
 # from processor.face_detector import FaceDetector as VideoCamera
 # from processor.person_detector import PersonDetector as VideoCamera
 import RPi.GPIO as GPIO
-from processor.mcp3208 as mcp3208
+import processor.mcp3208 as mcp3208
 
 import time
 import threading
