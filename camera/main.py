@@ -23,7 +23,7 @@ SERVO = GPIO.PWM(SERVO_OUT, 50)
 current_state = DUTY_CLOSE
 
 video_camera = VideoCamera(flip=False)
-adc = mcp3208(11, 10, 9, 8)
+adc = MCP3208(11, 10, 9, 8)
 
 app = Flask(__name__)
 
