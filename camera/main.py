@@ -46,7 +46,7 @@ def gen(camera):
         for ch in range(2):
             value[ch] = adc.adc(ch)
 
-       qr = value[0] < 2048
+        qr = value[0] < 2048
             
         if qr and value[1] < 2048:
             qr = False
