@@ -48,11 +48,9 @@ def gen(camera):
 
         enter = value[0] < 3400
         goout = value[1] < 3400
-        qr_detected = video_camera.get_detected()
-        ret = video_camera.get_detected_data()
-        print("[{}, {}]".format(qr_detected, ret))
+        print("[{}, {}]".format( video_camera.detected, video_camera.detected_data))
             
-        if enter and qr_detected:
+        if enter and video_camera.detected:
             SERVO.ChangeDutyCycle(DUTY_OPEN)
             time.sleep(0.5)
             SERVO.stop()
