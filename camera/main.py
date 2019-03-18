@@ -47,9 +47,10 @@ def gen(camera):
         value[1] = adc.adc(1)
 
         print("[{}, {}]".format(value[0], value[1]))
-        qr = value[0] < 2048
+        qr = value[0] < 3400
+        qr_detected, ret = video_camera.get_detected()
             
-        if qr and value[1] < 2048:
+        if qr and qr_detected:
             SERVO.ChangeDutyCycle(DUTY_OPEN)
 
         if qr:
