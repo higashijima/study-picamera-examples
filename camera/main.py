@@ -40,6 +40,7 @@ def index():
 
 def gen(camera):
     qr = False
+    value = []
 
     while True:
         for ch in range(2):
