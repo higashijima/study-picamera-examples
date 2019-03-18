@@ -43,19 +43,16 @@ def gen(camera):
     value = [0, 0]
 
     while True:
-#        for ch in range(2):
-#            value[ch] = adc.adc(ch)
         value[0] = adc.adc(0)
         value[1] = adc.adc(1)
 
+        print("[{}, {}]".format(value[0], value[1]))
         qr = value[0] < 2048
             
         if qr and value[1] < 2048:
-    #        qr = False
             SERVO.ChangeDutyCycle(DUTY_OPEN)
 
         if qr:
-    #        qr_detect()
             SERVO.ChangeDutyCycle(DUTY_CLOSE)
 
         frame = camera.get_frame()
