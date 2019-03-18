@@ -48,10 +48,12 @@ def gen(camera):
         qr = value[0] < 2048
             
         if qr and value[1] < 2048:
-            qr = False
+    #        qr = False
+            SERVO.ChangeDutyCycle(DUTY_OPEN)
 
         if qr:
-            qr_detect()
+    #        qr_detect()
+            SERVO.ChangeDutyCycle(DUTY_CLOSE)
 
         frame = camera.get_frame()
         yield (b'--frame\r\n'
