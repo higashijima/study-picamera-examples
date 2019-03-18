@@ -52,7 +52,10 @@ class QRDetector(object):
         return decoded_objs
 
     def get_detected(self):
-        return self.detected, self.detected_data
+        return self.detected
+
+    def get_detected_data(self):
+        return self.detected_data
 
     def draw_positions(self, frame, decoded_objs):
         for obj in decoded_objs:

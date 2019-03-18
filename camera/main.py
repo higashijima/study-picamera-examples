@@ -48,7 +48,8 @@ def gen(camera):
 
         enter = value[0] < 3400
         goout = value[1] < 3400
-        qr_detected, ret = video_camera.get_detected()
+        qr_detected = video_camera.get_detected()
+        ret = video_camera.get_detected_data()
         print("[{}, {}]".format(qr_detected, ret))
             
         if enter and qr_detected:
