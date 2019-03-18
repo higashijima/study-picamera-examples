@@ -40,11 +40,13 @@ def index():
 
 def gen(camera):
     qr = False
-    value = []
+    value = [0, 0]
 
     while True:
-        for ch in range(2):
-            value[ch] = adc.adc(ch)
+#        for ch in range(2):
+#            value[ch] = adc.adc(ch)
+        value[0] = adc.adc(0)
+        value[1] = adc.adc(1)
 
         qr = value[0] < 2048
             
