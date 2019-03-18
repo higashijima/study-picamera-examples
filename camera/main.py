@@ -39,22 +39,27 @@ def index():
     return render_template('index.html')
 
 def gen(camera):
-    qr = False
+    enter = False
     value = [0, 0]
 
     while True:
         value[0] = adc.adc(0)
         value[1] = adc.adc(1)
 
-        qr = value[0] < 3400
+        enter = value[0] < 3400
+        goout = value[1] < 3400
         qr_detected, ret = video_camera.get_detected()
         print("[{}, {}]".format(qr_detected, ret))
             
-        if qr and qr_detected:
+        if enter and qr_detected:
             SERVO.ChangeDutyCycle(DUTY_OPEN)
+            time.sleep(0.5)
+            SERVO.stop()
 
-        if qr:
+        if enter:
             SERVO.ChangeDutyCycle(DUTY_CLOSE)
+            time.sleep(0.5)
+            SERVO.stop()
 
         frame = camera.get_frame()
         yield (b'--frame\r\n'
